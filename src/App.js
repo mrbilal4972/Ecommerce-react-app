@@ -1,10 +1,20 @@
 import React from 'react';
-import './App.css';
+import HomePage from  './Components/Home/HomePage';
+import { BrowserRouter as Router} from 'react-router-dom';
+// import DashboardPage from './Components/DashBoard/DashboardPage';
+// import ProductsPage from './Components/Products/ProductsPage';
+// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+// import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Hello World from ecommerce app
+        <Router>
+
+      <HomePage />
+      {/* <DashboardPage />
+      <ProductsPage /> */}
+      </Router>
     </div>
   );
 }
