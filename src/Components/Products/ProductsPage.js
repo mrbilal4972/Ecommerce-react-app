@@ -1,6 +1,5 @@
-import React, {useState, useEffect, useReducer, createContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Reducer from './Reducer';
 import {createMuiTheme} from '@material-ui/core/styles'
 import {
   Grid,
@@ -12,15 +11,10 @@ import ProductCard from './ProductCard'
 
 const theme = createMuiTheme();
 
-export const productContext = createContext();
-
 
 function ProductsPage() {
 
     const [products, setProducts] = useState([]);
-
-    const initialState = [];
-    const [productAdded, dispatch] = useReducer(Reducer, initialState);
 
     useEffect(() => {
         axios.get('http://localhost:3000/products')
@@ -38,7 +32,6 @@ function ProductsPage() {
   return (
     <>
       {/* products cards */}
-      <productContext.Provider value = {{productAdded: productAdded, dispatch: dispatch}}>
     <Grid
     // style= {{ backgroundColor: 'red'} }
     style= { container }
@@ -60,7 +53,6 @@ function ProductsPage() {
         })
       }
     </Grid>
-    </productContext.Provider>
     </>
   )
 }

@@ -29,7 +29,7 @@ export default function ProductCard({product}) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <AddBtn id={product.id}/>
+        <AddBtn prod={product}/>
       </CardActions>
     </Card>
   );
